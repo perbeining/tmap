@@ -14,7 +14,7 @@
     "import:local": "node scripts/import-osm.mjs --local",
     "import:remote": "node scripts/import-osm.mjs --remote",
     "deploy": "npm run build && wrangler pages deploy dist --project-name tmap --branch main",
-    "test": "node --test test/"
+    "test": "node --test test/*.test.mjs"
   },
   "engines": {
     "node": ">=20"

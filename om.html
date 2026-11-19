@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Om ToiletKort – licens og privatliv</title>
+    <meta name="description" content="Et gratis, åbent kort over offentlige toiletter i Danmark, bygget på OpenStreetMap." data-i18n-content="app.description" />
+    <meta name="theme-color" content="#0b5d66" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body class="page">
+    <a class="skip-link" href="#main" data-i18n="skip.toMain">Gå til indhold</a>
+    <header class="topbar">
+      <a class="brand" href="/">
+        <img src="/icon.svg" alt="" width="28" height="28" />
+        <span class="brand-text"><span data-i18n="app.name">ToiletKort</span><span class="brand-tagline" data-i18n="app.tagline">Offentlige toiletter i Danmark</span></span>
+      </a>
+      <nav class="topnav">
+        <a href="/" data-i18n="view.map" data-i18n-title="nav.back">Kort</a>
+        <button type="button" id="lang-toggle" class="lang-toggle" data-i18n="lang.switch" data-i18n-aria-label="lang.switchLabel">English</button>
+      </nav>
+    </header>
+    <main id="main" class="page-main">
+      <h1 data-i18n="about.title">Om ToiletKort</h1>
+      <p data-i18n="about.intro"></p>
+
+      <h2 data-i18n="about.dataTitle"></h2>
+      <p data-i18n="about.data1"></p>
+      <p data-i18n="about.data2"></p>
+      <p data-i18n="about.data3"></p>
+
+      <h2 id="licens" data-i18n="about.licenseTitle"></h2>
+      <p data-i18n="about.license1"></p>
+      <p data-i18n="about.license2"></p>
+      <ul class="page-links">
+        <li><a href="/api/toilets?download=1" download data-i18n="about.downloadLink"></a></li>
+        <li><a href="https://www.openstreetmap.org/copyright" data-i18n="about.osmLink"></a></li>
+        <li><a id="source-link" href="#" data-i18n="about.sourceLink"></a></li>
+      </ul>
+
+      <h2 id="privatliv" data-i18n="about.privacyTitle"></h2>
+      <p data-i18n="about.privacy1"></p>
+      <p data-i18n="about.privacy2"></p>
+      <p data-i18n="about.privacy3"></p>
+      <p data-i18n="about.privacy4"></p>
+      <p data-i18n="about.privacy5"></p>
+      <p data-i18n="about.privacy6"></p>
+
+      <h2 id="kontakt" data-i18n="about.contactTitle"></h2>
+      <p><span data-i18n="about.contact"></span> <a id="contact-link" href="#" data-i18n="about.contactLink"></a></p>
+
+      <p class="hint" data-i18n="about.version"></p>
+      <p class="hint"><a href="/" data-i18n="nav.back">Tilbage til kortet</a></p>
+    </main>
+    <script type="module" src="/src/about.js"></script>
+  </body>
+</html>

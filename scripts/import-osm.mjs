@@ -36,17 +36,6 @@ out center meta;`;
 // og så markeres intet som nedlagt.
 const MIN_ELEMENTS_FOR_REMOVAL = 2000;
 
-const args = process.argv.slice(2);
-const target = args.includes('--remote') ? '--remote' : args.includes('--local') ? '--local' : null;
-const sqlOnly = args.includes('--sql-only');
-const fromFileIdx = args.indexOf('--from-file');
-const fromFile = fromFileIdx >= 0 ? args[fromFileIdx + 1] : null;
-
-if (!target && !sqlOnly) {
-  console.error('Angiv --local, --remote eller --sql-only');
-  process.exit(1);
-}
-
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function fetchOverpass() {
@@ -144,6 +133,16 @@ export function buildSql(rows, { now, osmBase, elementCount, skipped }) {
 }
 
 async function main() {
+  const args = process.argv.slice(2);
+  const target = args.includes('--remote') ? '--remote' : args.includes('--local') ? '--local' : null;
+  const sqlOnly = args.includes('--sql-only');
+  const fromFileIdx = args.indexOf('--from-file');
+  const fromFile = fromFileIdx >= 0 ? args[fromFileIdx + 1] : null;
+  if (!target && !sqlOnly) {
+    console.error('Angiv --local, --remote eller --sql-only');
+    process.exit(1);
+  }
+
   mkdirSync(DATA_DIR, { recursive: true });
   let data;
   if (fromFile) {
