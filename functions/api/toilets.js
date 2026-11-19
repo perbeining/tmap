@@ -2,7 +2,7 @@
 // ?download=1 giver filen som download. Svaret caches pr. dataversion.
 
 const COLUMNS = [
-  'id', 'source', 'osm_type', 'osm_id', 'osm_timestamp', 'lat', 'lon', 'name', 'access_category',
+  'id', 'source', 'osm_type', 'osm_id', 'osm_timestamp', 'osm_check_date', 'lat', 'lon', 'name', 'access_category',
   'opening_hours', 'fee', 'charge', 'payment', 'wheelchair', 'wheelchair_description',
   'changing_table', 'key_required', 'key_info', 'toilet_type', 'unisex', 'description',
   'status', 'updated_at', 'last_verified_at',

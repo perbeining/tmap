@@ -9,6 +9,7 @@ import { applyTranslations, getLang, initI18n, locale, onLangChange, t } from '.
 import { hoursInfo, hoursReady, loadHoursLib } from './hours.js';
 import {
   activeFilterCount,
+  bearing,
   DEFAULT_FILTERS,
   distanceMeters,
   formatDistance,
@@ -57,6 +58,7 @@ L.tileLayer(config.tileUrl, {
   attribution: config.tileAttribution,
 }).addTo(map);
 map.attributionControl.setPrefix(false);
+map.fitBounds(config.bounds);
 
 const clusters = L.markerClusterGroup({
   showCoverageOnHover: false,
@@ -189,8 +191,18 @@ function renderList() {
           el('span', { class: `li-fee${tl.fee ? '' : ' is-unknown'}`, text: fee }),
         ),
       ),
-      el('span', { class: 'li-dist', text: formatDistance(d, loc) }),
+      el('span', { class: 'li-dist' },
+        el('span', { text: formatDistance(d, loc) }),
+        el('span', { class: 'li-dir', text: t(`dir.${bearing(origin.latlng, [tl.lat, tl.lon])}`) }),
+      ),
     );
+    btn.setAttribute('aria-label', t('list.itemLabel', {
+      name: displayName(tl),
+      dist: formatDistance(d, loc),
+      dir: t(`dirLong.${bearing(origin.latlng, [tl.lat, tl.lon])}`),
+      open: openText,
+      fee,
+    }));
     btn.addEventListener('click', () => openDetail(tl));
     ol.append(el('li', {}, btn));
   }
@@ -274,7 +286,12 @@ function openDetail(tl) {
   $('detail-summary').replaceChildren(
     el('span', { class: `badge badge-${info.state}`, text: summary }),
     el('span', { class: 'detail-fee', text: feeLabel(tl) }),
-    origin ? el('span', { class: 'detail-dist', text: t('list.away', { d: formatDistance(distanceMeters(origin.latlng, [tl.lat, tl.lon]), locale()) }) }) : null,
+    origin
+      ? el('span', {
+          class: 'detail-dist',
+          text: `${t('list.away', { d: formatDistance(distanceMeters(origin.latlng, [tl.lat, tl.lon]), locale()) })}, ${t('dir.label', { dir: t(`dirLong.${bearing(origin.latlng, [tl.lat, tl.lon])}`) })}`,
+        })
+      : null,
   );
 
   const dl = $('detail-fields');
@@ -287,7 +304,10 @@ function openDetail(tl) {
     fieldRow(dl, t('detail.hours'), t('value.unknown'), { unknown: true });
   }
   fieldRow(dl, t('detail.price'), feeLabel(tl), { unknown: !tl.fee });
-  if (tl.payment) fieldRow(dl, t('detail.payment'), tl.payment.split(',').join(', '));
+  if (tl.payment) {
+    const methods = tl.payment.split(',').map((p) => (t(`pay.${p}`) === `pay.${p}` ? p.replaceAll('_', ' ') : t(`pay.${p}`)));
+    fieldRow(dl, t('detail.payment'), methods.join(', '));
+  }
   fieldRow(
     dl,
     t('detail.wheelchair'),
@@ -306,6 +326,10 @@ function openDetail(tl) {
   fieldRow(dl, t('detail.type'), tl.toilet_type ? t(`type.${tl.toilet_type}`) : t('value.unknown'), { unknown: !tl.toilet_type });
   if (tl.unisex) fieldRow(dl, t('detail.unisex'), yesNoText(tl.unisex));
   if (tl.description) fieldRow(dl, t('detail.description'), tl.description);
+  if (tl.osm_check_date) {
+    const cd = new Intl.DateTimeFormat(locale(), { dateStyle: 'medium' }).format(new Date(tl.osm_check_date));
+    fieldRow(dl, t('detail.checked'), t('detail.checkedOsm', { date: cd }));
+  }
   const date = tl.osm_timestamp
     ? new Intl.DateTimeFormat(locale(), { dateStyle: 'medium' }).format(new Date(tl.osm_timestamp))
     : null;
@@ -318,6 +342,12 @@ function openDetail(tl) {
   const editUrl = osmEditUrl(tl.osm_type, tl.osm_id);
   edit.hidden = !editUrl;
   if (editUrl) edit.href = editUrl;
+
+  $('detail-map').onclick = () => {
+    closeDialog($('detail'));
+    setView('map');
+    clusters.zoomToShowLayer(markerFor(tl), () => markerFor(tl).getElement()?.focus());
+  };
 
   const dlg = $('detail');
   if (!dlg.open) dlg.showModal();
@@ -493,7 +523,7 @@ async function loadToilets() {
   }
 }
 
-setView(wide.matches ? 'map' : 'map');
+setView('map');
 loadToilets().then(() => {
   // Åbningstider indlæses bagefter, så kortet er hurtigt brugbart på mobilnet.
   loadHoursLib()

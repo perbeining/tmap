@@ -40,3 +40,10 @@ test('SQL escaper anførselstegn og markerer ikke nedlagte ved få elementer', (
   assert.doesNotMatch(text, /status = 'removed', updated_at/);
   assert.ok(removalNote);
 });
+
+test('kun pissoir og check_date', () => {
+  assert.equal(transformElement(node({ 'toilets:position': 'urinal' })).toilet_type, 'urinal');
+  assert.notEqual(transformElement(node({ 'toilets:position': 'seated;urinal' })).toilet_type, 'urinal');
+  assert.equal(transformElement(node({ check_date: '2024-05-01' })).osm_check_date, '2024-05-01');
+  assert.equal(transformElement(node({ check_date: 'last year' })).osm_check_date, null);
+});

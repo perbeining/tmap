@@ -79,6 +79,8 @@ function keyInfo(tags) {
 }
 
 function toiletType(tags) {
+  const pos = clean(tags['toilets:position'])?.toLowerCase();
+  if (pos && pos.split(';').every((p) => p.trim() === 'urinal')) return 'urinal'; // kun pissoir
   if (tags.supervised === 'yes') return 'staffed';
   if (tags.automatic === 'yes' || tags['toilets:type'] === 'automatic') return 'automatic';
   const disposal = clean(tags['toilets:disposal'])?.toLowerCase();
@@ -112,6 +114,7 @@ export function transformElement(el) {
     osm_id: el.id,
     osm_version: el.version ?? null,
     osm_timestamp: el.timestamp ?? null,
+    osm_check_date: /^\d{4}-\d{2}(-\d{2})?$/.test(tags.check_date ?? '') ? tags.check_date : null,
     lat: Math.round(lat * 1e7) / 1e7,
     lon: Math.round(lon * 1e7) / 1e7,
     name: clean(tags['name:da'] ?? tags.name),

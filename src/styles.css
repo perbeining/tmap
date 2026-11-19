@@ -113,6 +113,12 @@ body.app { display: flex; flex-direction: column; height: 100vh; height: 100dvh;
 }
 .segmented button + button { border-left: 1px solid var(--c-border); }
 .segmented button[aria-pressed="true"] { background: var(--c-primary); color: #fff; }
+@media (max-width: 479px) {
+  /* Smal skærm: "Min position" som ikonknap, så værktøjslinjen holder sig på én række. */
+  #locate-btn { padding: 0; width: 46px; }
+  #locate-btn .btn-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  #filters-btn { flex: 1; }
+}
 .status { margin: 6px 0 2px; font-size: .875rem; color: var(--c-muted); min-height: 1.3em; }
 .hint { font-size: .875rem; color: var(--c-muted); margin: 6px 0; }
 .hint.is-error { color: var(--c-closed); }
@@ -136,6 +142,8 @@ body.app { display: flex; flex-direction: column; height: 100vh; height: 100dvh;
 .li-name { font-weight: 600; overflow-wrap: anywhere; }
 .li-meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: .875rem; }
 .li-fee.is-unknown { color: var(--c-muted); font-style: italic; }
+.li-dist { display: flex; flex-direction: column; align-items: flex-end; }
+.li-dir { font-size: .8125rem; font-weight: 600; color: var(--c-muted); }
 .li-dist { flex: none; font-weight: 700; color: var(--c-primary-dark); }
 .list-empty { padding: 16px; background: var(--c-surface); border-radius: var(--radius); color: var(--c-muted); }
 

@@ -69,6 +69,15 @@ export function distanceMeters(a, b) {
   return 2 * R * Math.asin(Math.sqrt(s));
 }
 
+/** Kompasretning fra a til b som en af N, NE, E, SE, S, SW, W, NW. */
+export function bearing(a, b) {
+  const rad = Math.PI / 180;
+  const y = Math.sin((b[1] - a[1]) * rad) * Math.cos(b[0] * rad);
+  const x = Math.cos(a[0] * rad) * Math.sin(b[0] * rad) - Math.sin(a[0] * rad) * Math.cos(b[0] * rad) * Math.cos((b[1] - a[1]) * rad);
+  const deg = (Math.atan2(y, x) / rad + 360) % 360;
+  return ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'][Math.round(deg / 45) % 8];
+}
+
 export function formatDistance(m, locale) {
   if (m < 1000) return `${Math.max(10, Math.round(m / 10) * 10)} m`;
   const km = m / 1000;

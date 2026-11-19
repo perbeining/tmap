@@ -43,7 +43,10 @@ export async function onRequestGet({ request, waitUntil }) {
   if (!res.ok) return json({ error: 'unavailable' }, 502);
 
   const raw = await res.json();
-  const results = (Array.isArray(raw) ? raw : []).map((r) => ({
+  const seen = new Set();
+  const results = (Array.isArray(raw) ? raw : [])
+    .filter((r) => !seen.has(r.display_name) && seen.add(r.display_name))
+    .map((r) => ({
     name: r.display_name,
     lat: Number(r.lat),
     lon: Number(r.lon),

@@ -60,3 +60,10 @@ test('links', () => {
   assert.equal(osmEditUrl('node', 123), 'https://www.openstreetmap.org/edit?node=123');
   assert.equal(osmEditUrl(null, null), null);
 });
+
+test('kompasretning', async () => {
+  const { bearing } = await import('../src/logic.js');
+  assert.equal(bearing([55, 12], [56, 12]), 'N');
+  assert.equal(bearing([55, 12], [55, 13]), 'E');
+  assert.equal(bearing([55, 12], [54, 11]), 'SW');
+});

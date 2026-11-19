@@ -47,7 +47,8 @@ export function hoursInfo(t, lang = 'da', now = new Date()) {
   let pretty = null;
   try {
     state = oh.getUnknown(now) ? 'unknown' : oh.getState(now) ? 'open' : 'closed';
-    next = oh.getNextChange(now) || null;
+    // Uden en øvre grænse kan getNextChange() løbe i ring for fx "Mo-Su,PH 00:00-24:00".
+    next = oh.getNextChange(now, new Date(now.getTime() + 8 * 864e5)) || null;
     pretty = oh.prettifyValue({ conf: { locale: lang } });
   } catch {
     state = 'unknown';

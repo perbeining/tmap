@@ -9,7 +9,6 @@
   "nav.back": "Tilbage til kortet",
   "lang.switch": "English",
   "lang.switchLabel": "Switch to English",
-
   "search.label": "Søg på adresse eller by",
   "search.placeholder": "Adresse eller by",
   "search.submit": "Søg",
@@ -18,11 +17,9 @@
   "search.error": "Søgningen virker ikke lige nu. Prøv igen om lidt.",
   "search.results": "{n} steder fundet. Vælg et:",
   "search.clear": "Ryd søgning",
-
   "view.label": "Visning",
   "view.map": "Kort",
   "view.list": "Liste",
-
   "locate.button": "Min position",
   "locate.locating": "Finder din position …",
   "locate.denied": "Du har ikke givet lov til at bruge din position. Søg i stedet på en adresse.",
@@ -30,7 +27,6 @@
   "locate.unsupported": "Din browser kan ikke oplyse din position.",
   "locate.found": "Kortet er centreret på din position.",
   "locate.marker": "Din position",
-
   "filters.button": "Filtre",
   "filters.buttonActive": "Filtre ({n})",
   "filters.title": "Filtre",
@@ -44,17 +40,14 @@
   "filters.reset": "Nulstil",
   "filters.close": "Vis toiletter",
   "filters.loadingHours": "Åbningstider indlæses …",
-
   "category.public": "Offentligt",
   "category.customers": "For kunder",
   "category.permission": "Åbent for alle efter aftale",
   "category.emptyNote": "Toiletter for kunder og efter aftale kommer til, når brugerne kan tilføje dem.",
-
   "status.loading": "Henter toiletter …",
   "status.loadError": "Toiletterne kunne ikke hentes. Tjek forbindelsen og genindlæs siden.",
   "status.count": "{shown} af {total} toiletter vises",
   "status.countOne": "1 af {total} toiletter vises",
-
   "list.title": "Nærmeste toiletter",
   "list.fromPosition": "Afstand fra din position",
   "list.fromSearch": "Afstand fra {place}",
@@ -63,18 +56,15 @@
   "list.more": "Vis flere",
   "list.showOnMap": "Vis på kort",
   "list.away": "{d} væk",
-
   "open.open": "Åbent",
   "open.closed": "Lukket",
   "open.unknown": "Åbningstid ukendt",
   "open.closesAt": "lukker {time}",
   "open.opensAt": "åbner {time}",
   "open.alwaysOpen": "Døgnåbent",
-
   "fee.free": "Gratis",
   "fee.paid": "Betaling",
   "fee.unknown": "Pris ukendt",
-
   "detail.close": "Luk",
   "detail.unnamed": "Offentligt toilet",
   "detail.access": "Adgang",
@@ -96,7 +86,6 @@
   "detail.editOsm": "Ret på OpenStreetMap",
   "detail.editOsmHint": "Mangler eller er noget forkert? Ret det på OpenStreetMap, så kommer det med her ved næste opdatering.",
   "detail.rawHours": "Som skrevet i OpenStreetMap: {value}",
-
   "value.yes": "Ja",
   "value.no": "Nej",
   "value.limited": "Delvist",
@@ -110,13 +99,10 @@
   "type.flush": "Almindeligt toilet",
   "type.pit_latrine": "Mult",
   "type.dry": "Tørkloset",
-
   "map.label": "Kort over toiletter",
   "map.cluster": "{n} toiletter. Zoom ind for at se dem.",
   "map.marker": "{name}. {open}",
-
   "footer.credit": "Kortdata © OpenStreetMap-bidragydere, ODbL",
-
   "about.title": "Om ToiletKort",
   "about.intro": "ToiletKort (TMap) er et gratis, åbent kort over offentlige toiletter i Danmark. Det er et hobbyprojekt uden reklamer.",
   "about.dataTitle": "Hvor kommer data fra?",
@@ -139,5 +125,40 @@
   "about.contactTitle": "Kontakt",
   "about.contact": "Spørgsmål eller fejl på siden? Skriv til ejeren via kontaktsiden:",
   "about.contactLink": "Kontakt",
-  "about.version": "Version: trin 1 (kortet)"
+  "about.version": "Version: trin 1 (kortet)",
+  "dir.N": "N",
+  "dir.NE": "NØ",
+  "dir.E": "Ø",
+  "dir.SE": "SØ",
+  "dir.S": "S",
+  "dir.SW": "SV",
+  "dir.W": "V",
+  "dir.NW": "NV",
+  "dir.label": "mod {dir}",
+  "type.urinal": "Kun pissoir",
+  "detail.checked": "Kontrolleret",
+  "detail.checkedOsm": "{date} (af en OpenStreetMap-kortlægger)",
+  "detail.showOnMap": "Vis på kort",
+  "list.itemLabel": "{name}, {dist} mod {dir}. {open}. {fee}.",
+  "dirLong.N": "nord",
+  "dirLong.NE": "nordøst",
+  "dirLong.E": "øst",
+  "dirLong.SE": "sydøst",
+  "dirLong.S": "syd",
+  "dirLong.SW": "sydvest",
+  "dirLong.W": "vest",
+  "dirLong.NW": "nordvest",
+  "pay.coins": "mønter",
+  "pay.notes": "sedler",
+  "pay.cash": "kontanter",
+  "pay.contactless": "kontaktløs",
+  "pay.credit_cards": "kreditkort",
+  "pay.debit_cards": "betalingskort",
+  "pay.mobilepay": "MobilePay",
+  "pay.app": "app",
+  "pay.sms": "sms",
+  "pay.visa": "Visa",
+  "pay.mastercard": "Mastercard",
+  "pay.dankort": "Dankort",
+  "pay.cards": "kort"
 }

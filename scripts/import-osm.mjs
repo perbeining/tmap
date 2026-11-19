@@ -85,10 +85,10 @@ export function buildSql(rows, { now, osmBase, elementCount, skipped }) {
     `INSERT INTO import_runs (source, started_at, osm_base, elements, imported, skipped) VALUES ('osm', ${sql(now)}, ${sql(osmBase)}, ${elementCount}, ${rows.length}, ${skipped});`,
   );
 
-  const cols = ['source', 'osm_type', 'osm_id', 'osm_version', 'osm_timestamp', 'lat', 'lon', ...OSM_FIELDS, 'status', 'created_at', 'updated_at', 'osm_seen_at'];
+  const cols = ['source', 'osm_type', 'osm_id', 'osm_version', 'osm_timestamp', 'osm_check_date', 'lat', 'lon', ...OSM_FIELDS, 'status', 'created_at', 'updated_at', 'osm_seen_at'];
   // Felter, der følger OSM. I trin 2 skal felter, som en bidragyder har rettet, undtages her
   // (se flettereglerne i docs/krav.md afsnit 7) – toilet_osm_values gør forskellen synlig.
-  const followOsm = ['osm_version', 'osm_timestamp', 'lat', 'lon', ...OSM_FIELDS];
+  const followOsm = ['osm_version', 'osm_timestamp', 'osm_check_date', 'lat', 'lon', ...OSM_FIELDS];
 
   for (const r of rows) {
     const values = {

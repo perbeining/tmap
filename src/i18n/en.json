@@ -9,7 +9,6 @@
   "nav.back": "Back to the map",
   "lang.switch": "Dansk",
   "lang.switchLabel": "Skift til dansk",
-
   "search.label": "Search for an address or town",
   "search.placeholder": "Address or town",
   "search.submit": "Search",
@@ -18,11 +17,9 @@
   "search.error": "Search is not working right now. Please try again shortly.",
   "search.results": "{n} places found. Pick one:",
   "search.clear": "Clear search",
-
   "view.label": "View",
   "view.map": "Map",
   "view.list": "List",
-
   "locate.button": "My location",
   "locate.locating": "Finding your location …",
   "locate.denied": "You have not allowed access to your location. Search for an address instead.",
@@ -30,7 +27,6 @@
   "locate.unsupported": "Your browser cannot provide your location.",
   "locate.found": "The map is centred on your location.",
   "locate.marker": "Your location",
-
   "filters.button": "Filters",
   "filters.buttonActive": "Filters ({n})",
   "filters.title": "Filters",
@@ -44,17 +40,14 @@
   "filters.reset": "Reset",
   "filters.close": "Show toilets",
   "filters.loadingHours": "Loading opening hours …",
-
   "category.public": "Public",
   "category.customers": "Customers only",
   "category.permission": "Open to all by arrangement",
   "category.emptyNote": "Customer toilets and toilets open by arrangement will be added once users can contribute them.",
-
   "status.loading": "Loading toilets …",
   "status.loadError": "The toilets could not be loaded. Check your connection and reload the page.",
   "status.count": "Showing {shown} of {total} toilets",
   "status.countOne": "Showing 1 of {total} toilets",
-
   "list.title": "Nearest toilets",
   "list.fromPosition": "Distance from your location",
   "list.fromSearch": "Distance from {place}",
@@ -63,18 +56,15 @@
   "list.more": "Show more",
   "list.showOnMap": "Show on map",
   "list.away": "{d} away",
-
   "open.open": "Open",
   "open.closed": "Closed",
   "open.unknown": "Opening hours unknown",
   "open.closesAt": "closes {time}",
   "open.opensAt": "opens {time}",
   "open.alwaysOpen": "Open 24/7",
-
   "fee.free": "Free",
   "fee.paid": "Fee",
   "fee.unknown": "Price unknown",
-
   "detail.close": "Close",
   "detail.unnamed": "Public toilet",
   "detail.access": "Access",
@@ -96,7 +86,6 @@
   "detail.editOsm": "Edit on OpenStreetMap",
   "detail.editOsmHint": "Something missing or wrong? Fix it on OpenStreetMap and it will appear here after the next update.",
   "detail.rawHours": "As written in OpenStreetMap: {value}",
-
   "value.yes": "Yes",
   "value.no": "No",
   "value.limited": "Partly",
@@ -110,13 +99,10 @@
   "type.flush": "Ordinary toilet",
   "type.pit_latrine": "Pit latrine",
   "type.dry": "Dry toilet",
-
   "map.label": "Map of toilets",
   "map.cluster": "{n} toilets. Zoom in to see them.",
   "map.marker": "{name}. {open}",
-
   "footer.credit": "Map data © OpenStreetMap contributors, ODbL",
-
   "about.title": "About ToiletKort",
   "about.intro": "ToiletKort (TMap) is a free, open map of public toilets in Denmark. It is a hobby project with no advertising.",
   "about.dataTitle": "Where does the data come from?",
@@ -139,5 +125,40 @@
   "about.contactTitle": "Contact",
   "about.contact": "Questions or a problem with the site? Write to the owner via the contact page:",
   "about.contactLink": "Contact",
-  "about.version": "Version: stage 1 (the map)"
+  "about.version": "Version: stage 1 (the map)",
+  "dir.N": "N",
+  "dir.NE": "NE",
+  "dir.E": "E",
+  "dir.SE": "SE",
+  "dir.S": "S",
+  "dir.SW": "SW",
+  "dir.W": "W",
+  "dir.NW": "NW",
+  "dir.label": "to the {dir}",
+  "type.urinal": "Urinal only",
+  "detail.checked": "Checked",
+  "detail.checkedOsm": "{date} (by an OpenStreetMap mapper)",
+  "detail.showOnMap": "Show on map",
+  "list.itemLabel": "{name}, {dist} to the {dir}. {open}. {fee}.",
+  "dirLong.N": "north",
+  "dirLong.NE": "north-east",
+  "dirLong.E": "east",
+  "dirLong.SE": "south-east",
+  "dirLong.S": "south",
+  "dirLong.SW": "south-west",
+  "dirLong.W": "west",
+  "dirLong.NW": "north-west",
+  "pay.coins": "coins",
+  "pay.notes": "notes",
+  "pay.cash": "cash",
+  "pay.contactless": "contactless",
+  "pay.credit_cards": "credit cards",
+  "pay.debit_cards": "debit cards",
+  "pay.mobilepay": "MobilePay",
+  "pay.app": "app",
+  "pay.sms": "text message",
+  "pay.visa": "Visa",
+  "pay.mastercard": "Mastercard",
+  "pay.dankort": "Dankort",
+  "pay.cards": "cards"
 }

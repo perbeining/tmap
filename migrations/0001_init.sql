@@ -8,6 +8,7 @@ CREATE TABLE toilets (
   osm_id                 INTEGER,
   osm_version            INTEGER,
   osm_timestamp          TEXT,             -- seneste redigering i OSM
+  osm_check_date         TEXT,             -- OSM check_date: hvornår en kortlægger sidst har kontrolleret toilettet
   lat                    REAL NOT NULL,
   lon                    REAL NOT NULL,
   name                   TEXT,             -- navn eller kort beskrivelse
@@ -22,7 +23,7 @@ CREATE TABLE toilets (
   changing_table         TEXT,             -- yes / no / limited / NULL
   key_required           TEXT,             -- no / key / code / NULL. Selve koden gemmes aldrig.
   key_info               TEXT,             -- hvor man får nøgle/kode, fx "Euronøgle"
-  toilet_type            TEXT,             -- staffed / automatic / flush / pit_latrine / dry / NULL
+  toilet_type            TEXT,             -- staffed / automatic / flush / pit_latrine / dry / urinal / NULL
   unisex                 TEXT,             -- yes / no / NULL (kønsneutralt)
   description            TEXT,             -- fri tekst
   status                 TEXT NOT NULL DEFAULT 'active'
