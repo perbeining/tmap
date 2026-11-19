@@ -1,0 +1,21 @@
+// Cloudflare Pages-projekt for ToiletKort (TMap).
+// Ingen domæner står her: adressen sættes på Pages-projektet (custom domain),
+// og CANONICAL_HOST kan senere sættes som miljøvariabel, når tmap.dk tages i brug.
+{
+  "name": "tmap",
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tmap",
+      "database_id": "f27a9d0b-02ff-4016-abdd-ec73b72fd5f2",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    // Tom = ingen omdirigering. Sæt fx "tmap.dk" for at sende alle andre adresser videre dertil.
+    "CANONICAL_HOST": ""
+  }
+}

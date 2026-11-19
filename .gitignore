@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+data/*.json
+data/*.sql
+!data/sample.json
+.DS_Store
