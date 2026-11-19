@@ -13,7 +13,9 @@ export async function onRequestGet({ request, env, waitUntil }) {
   const download = url.searchParams.get('download') === '1';
   const version = (await env.DB.prepare("SELECT value FROM meta WHERE key = 'data_version'").first('value')) || '0';
   const etag = `"${version}"`;
-  if (!download && request.headers.get('If-None-Match') === etag) {
+  // Cloudflare gør ETag svag (W/) ved komprimering, så begge former accepteres.
+  const inm = (request.headers.get('If-None-Match') || '').replace(/^W\//, '');
+  if (!download && inm === etag) {
     return new Response(null, { status: 304, headers: { ETag: etag } });
   }
 
